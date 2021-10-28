@@ -2,5 +2,7 @@ This was made as a joke, it works but you probably shouldnt use this as it is aw
 
 Get authkey and torrent_pass by copying a download link.
 
+To use this, add your authkey, torrent_pass and your session cookie in the python file.
+
 Get cookie by going to https://bemaniso.ws/index.php , pressing 'ctrl + shift + i' and going to the network tab
 reload page and click 'index.php' on the top, scroll down to request headers and copy the string after session=
