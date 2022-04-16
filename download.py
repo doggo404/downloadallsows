@@ -1,7 +1,7 @@
 import requests
 import json
 import html
-
+from hurry.filesize import size, si
 
 authkey = ''
 cookie = 'session='
@@ -27,8 +27,12 @@ while count < 35000:
         torrent_name = torrent_name.replace('>', '')
         torrent_name = torrent_name.replace('<', '')
         torrent_name = html.unescape(torrent_name)
+        filesize = torrent_info['response']['torrent']['size']
+        fsize = str(size(filesize))
+
         open(f"{torrent_name}.torrent", 'wb').write(torrent_download.content)
-        print(f"\n{torrent_name} downloaded. \n")
+        print(f"\033[1;32;40m \n{torrent_name} ({fsize}) downloaded. \n")
 
     else:
-        print(f"status: {status}, torrent {count} does not exist")
+        print(f"\033[1;31;40m \nstatus: {status}, torrent {count} does not exist \n")
+
